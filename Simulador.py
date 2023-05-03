@@ -1,7 +1,9 @@
-from Cliente import Cliente
+from Protocolo import *
 
-#Criando o cliente
-cliente = Cliente('Francisco')
+def Simulador():
+    gerarCliente()
+    respostaServidorCliente(frase1)
+    respostaServidorCliente(frase2)
+    Menu()
 
-
-
+Simulador()

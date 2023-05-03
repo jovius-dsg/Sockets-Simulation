@@ -7,12 +7,24 @@ num_votes = [1, 2, 3, 4, 5, 6, 7, 7, 2, 3, 1, 4, 2, 3, 4]
 ranking = {}
 
 def List():
-    return print(listaVotacao)
-
+    lista_max= max(listaVotacao)
+    lista_min= min(listaVotacao)
+    print('\nLISTA PARA VOTAR:')
+    for numero in range (lista_min, lista_max+1):
+        print(numero, ':', listaVotacao[numero])
+        
 def Vote():
-    vote = int(input('Digite o número do seu voto:'))
-    num_votes.append(vote)
-    Rank(num_votes)
+    lista_max= max(listaVotacao)
+    lista_min= min(listaVotacao)
+
+    List()
+    vote = int(input('Digite o número do seu voto: '))
+    if (lista_min < vote < lista_max):
+        num_votes.append(vote)
+        Rank(num_votes)
+        print("Voto computado!") 
+    else:
+        print("Seu voto foi nulo!")    
 
 def Rank(lista):
     contador = 0
@@ -30,8 +42,9 @@ def Rank(lista):
     ranking.update(tranporte)
 
 def Ranked():
+    Rank(num_votes)
     lista_max= max(ranking)
     lista_min= min(ranking)
-    print('RANKING:')
+    print('\nRANKING:')
     for numero in range (lista_min, lista_max+1):
         print(numero, '=', listaVotacao[numero],'|', ranking[numero], 'vts')
